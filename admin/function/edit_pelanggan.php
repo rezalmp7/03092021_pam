@@ -9,57 +9,30 @@ include '../../config/koneksi.php';
 include('../../library/phpqrcode/qrlib.php');
 
 // menangkap data yang dikirim dari form login
-
-function createRandomPassword() { 
-
-    $chars = "abcdefghijkmnopqrstuvwxyz023456789"; 
-    srand((double)microtime()*1000000); 
-    $i = 0; 
-    $pass = '' ; 
-
-    while ($i <= 4) { 
-        $num = rand() % 33; 
-        $tmp = substr($chars, $num, 1); 
-        $pass = $pass . $tmp; 
-        $i++; 
-    } 
-
-    return $pass; 
-
-} 
-
 if($_SESSION['pamrh_level'] != 'admin')
 {
     $_SESSION['pamrh_flash_error'] = "Login Terlebih Dahulu";
-    header('location:../login.php');
+    // header('location:../login.php');
 }
 else {
+    $id = $_POST['id'];
     $nama = $_POST['nama'];
     $id_dusun = $_POST['dusun'];
 
     $query_data_dusun = mysqli_query($koneksi, "SELECT * FROM dusun WHERE id='$id_dusun'");
     $data_dusun = mysqli_fetch_array($query_data_dusun);
 
+    $dusun_lama = $_POST['dusun_lama'];
     $dusun = $id_dusun;
     $rt = $_POST['rt'];
     $rw = $_POST['rw'];
     $no_rumah = $_POST['noRumah'];
     $no_hp = $_POST['no_hp'];
-    
-    $query_max_id = mysqli_query($koneksi, "SELECT max(id) as maxid FROM pelanggan");
-    $max_id = mysqli_fetch_array($query_max_id);
-    if($max_id == null)
-    {
-        $id = 1;
-    }
-    else {
-        $id = $max_id['maxid']+1;
-    }
-
+    $kode = $_POST['code'];
     $id_pelanggan = $data_dusun['kode'].sprintf("%06d", $id);
-    $kode = createRandomPassword();
-
-
+    $qrcode_lama = $_POST['qrcode_lama'];
+    unlink("../../assets/img/qrcode/".$qrcode_lama);
+    
     // how to save PNG codes to server
     
     $tempDir = '../../assets/img/qrcode/';
@@ -81,10 +54,9 @@ else {
 
         $qrcode = $fileName;
 
-        mysqli_query($koneksi, "INSERT INTO pelanggan (id, id_pelanggan, nama, dusun, rt, rw, no_rumah, no_hp, level, code, qrcode) 
-        VALUES ('$id', '$id_pelanggan', '$nama', '$dusun', '$rt', '$rw', '$no_rumah', '$no_hp', 'pelanggan', '$kode', '$qrcode')");
+        mysqli_query($koneksi, "UPDATE pelanggan SET id_pelanggan='$id_pelanggan', nama='$nama', dusun='$dusun', rt='$rt', rw='$rw', no_rumah='$no_rumah', no_hp='$no_hp', level='pelanggan', code='$kode', qrcode='$qrcode' WHERE id='$id'");
 
-        $_SESSION['pamrh_flash_success'] = "Pelanggan Berhasil di Daftarkan dengan ID Pelanggan <b>".$id_pelanggan."</b>";
+        $_SESSION['pamrh_flash_success'] = "Pelanggan Berhasil di Update silahkan cetak ulang kartu <b>".$id_pelanggan."</b>";
         header('location:../pelanggan.php');
     } else {
         echo 'File already generated! We can use this cached file to speed up site on common codes!';
