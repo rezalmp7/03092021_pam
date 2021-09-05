@@ -18,36 +18,24 @@
   <title>One Health - Medical Center HTML5 Template</title>
 
   <link rel="stylesheet" href="../assets/assets/css/maicons.css">
-
   <link rel="stylesheet" href="../assets/assets/css/bootstrap.css">
-
   <link rel="stylesheet" href="../assets/assets/vendor/owl-carousel/css/owl.carousel.css">
-
   <link rel="stylesheet" href="../assets/assets/vendor/animate/animate.css">
-
   <link rel="stylesheet" href="../assets/assets/css/theme.css">
-
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.4/dist/sweetalert2.min.css">
-
   <link rel="stylesheet" href="https://cdn.datatables.net/1.11.0/css/dataTables.bootstrap4.min.css">  
-
+  <link rel="stylesheet" href="../assets/assets/vendor/lightbox2/dist/css/lightbox.min.css">
     
   <script src="../assets/assets/js/jquery-3.5.1.min.js"></script>
-
   <script src="../assets/assets/js/bootstrap.bundle.min.js"></script>
-
   <script src="../assets/assets/vendor/owl-carousel/js/owl.carousel.min.js"></script>
-
   <script src="../assets/assets/vendor/wow/wow.min.js"></script>
-
   <script src="../assets/assets/js/theme.js"></script>
-
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.4/dist/sweetalert2.min.js"></script>
-
   <script src="https://cdn.datatables.net/1.11.0/js/jquery.dataTables.min.js"></script>
-
   <script src="https://cdn.datatables.net/1.11.0/js/dataTables.bootstrap4.min.js"></script>
-
+  <script src="../assets/assets/vendor/lightbox2/dist/js/lightbox-plus-jquery.min.js"></script>
+  <script src="https://code.iconify.design/2/2.0.3/iconify.min.js"></script>
   <script>
     $(document).ready(function() {
       $('#data_table').DataTable();
