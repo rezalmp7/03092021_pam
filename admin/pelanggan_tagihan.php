@@ -15,6 +15,9 @@
         $data_pelanggan = mysqli_fetch_array($query_data_pelanggan);
         $id_pelanggan_tagihan = $data_pelanggan['id'];
 
+        $query_cek_belum_lunas = mysqli_query($koneksi, "SELECT * FROM `tagihan` WHERE id_pelanggan = '$id_pelanggan' AND (status='butuh bayar' OR status='butuh konfirmasi')");
+        $cek_belum_lunas = mysqli_num_rows($query_cek_belum_lunas);
+
         $query_tagihan = mysqli_query($koneksi, "SELECT * FROM tagihan WHERE id_pelanggan = '$id_pelanggan_tagihan'");
     }
 
@@ -44,7 +47,7 @@
           <h1 class="mb-3">Tagihan <a href="pelanggan_tagihan_tambah.php?id=<?php echo $data_pelanggan['id']; ?>" class="btn mt-3 btn-success float-right">Tambah</a></h1>
           
           <div class="text-lg">
-            <table id="data_table" class="table table-striped table-bordered" style="width:100%">
+            <table id="data_table" class="table table-striped table-bordered table-responsive" style="width:100%">
               <thead>
                   <tr>
                       <th>Bulan Bayar</th>
@@ -72,7 +75,7 @@
                       <td><?php echo $a['awal'].' - '.$a['akhir']; ?></td>
                       <td><?php echo $a['pemakaian']; ?></td>
                       <td><?php echo number_format($a['tagihan'],0,',','.'); ?></td>
-                      <td class="text-capitalize"><?php echo $a['status']; ?></td>
+                    <td class="text-capitalize"><?php echo $a['status']; ?></td>
                       <td class="text-capitalize"><?php echo $a['metode_bayar']; ?></td>
                       <td class="text-capitalize"><?php echo $a['petugas_verifikasi']; ?></td>
                       <td><?php echo date('H:i:s', strtotime($a['create_at'])); ?></td>
@@ -80,9 +83,22 @@
                         <a class="example-image-link" href="../assets/img/meteran/<?php echo $a['foto_meteran']; ?>" data-lightbox="example-set"><img class="example-image" style="width: 100px" src="../assets/img/meteran/<?php echo $a['foto_meteran']; ?>" alt=""/></a>
                       </td>
                       <td>
-                        <a target="_blank" href="pelanggan_tagihan_konfirmasi.php?id=<?php echo $data_pelanggan['id']; ?>" class="btn btn-sm pt-1 pb-1 pl-3 pr-3 btn-secondary"><span class="iconify" data-icon="grommet-icons:document-verified"></span></a>
+                        <?php
+                        if($a['status'] == 'butuh konfirmasi')
+                        {
+                        ?>
+                        <a target="_blank" href="pelanggan_tagihan_konfirmasi.php?id=<?php echo $data_pelanggan['id']; ?>&id_tagihan=<?php echo $a['id']; ?>" class="btn btn-sm pt-1 pb-1 pl-3 pr-3 btn-secondary"><span class="iconify" data-icon="grommet-icons:document-verified"></span></a>
+                        <?php
+                        }
+                        
+                        if($a['status'] != 'lunas')
+                        {
+                        ?>
                         <a href="pelanggan_tagihan_edit.php?id=<?php echo $data_pelanggan['id']; ?>&id_tagihan=<?php echo $a['id']; ?>" class="btn btn-sm pt-1 pb-1 pl-3 pr-3 btn-warning"><span class="iconify" data-icon="akar-icons:edit"></span></a>
                         <a href="function/hapus_tagihan.php?id=<?php echo $data_pelanggan['id']; ?>&id_tagihan=<?php echo $a['id']; ?>" class="btn btn-sm pt-1 pb-1 pl-3 pr-3 btn-danger"><span class="iconify" data-icon="carbon:delete"></span></a>
+                        <?php
+                        }
+                        ?>
                       </td>
                   </tr>
                   <?php

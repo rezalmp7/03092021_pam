@@ -1,19 +1,34 @@
 <?php
-  $thisPage = 'home';
-  include './layout/header.php';
+    session_start();
+    $thisPage = 'home';
+    
+    include '../config/koneksi.php';
+    $id_login = $_SESSION['pamrh_id_pelanggan'];
+    
+    $query_pelanggan_login = mysqli_query($koneksi, "SELECT * FROM pelanggan WHERE id='$id_login'");
+    $pelanggan_login = mysqli_fetch_assoc($query_pelanggan_login);
+
+    if($_SESSION['pamrh_level'] != 'pelanggan')
+    {
+      $_SESSION['pamrh_flash_error'] = "Login Terlebih Dahulu";
+      header('location:../login.php');
+    }
+
+    include 'layout/header.php';
+  
 ?>
 
-  <div class="page-hero bg-image overlay-dark" style="background-image: url(./assets/img/gmb-1.jpg);">
+  <div class="page-hero bg-image overlay-dark" style="background-image: url('../assets/img/gmb-1.jpg');">
     <div class="hero-section">
       <div class="container text-center wow zoomIn">
         <span class="subhead">Air Bersih Untuk Masyarakat</span>
         <h1 class="display-4">PAM</h1>
-        <a href="login.php" class="btn btn-primary">SCAN QR</a>
+        <a href="scan.php" class="btn btn-primary">SCAN QR</a>
       </div>
     </div>
   </div>
 
-  <div class="page-section">
+  <!-- <div class="page-section">
     <div class="container">
       <h1 class="text-center wow fadeInUp text-capitalize">Masukan Pesan Anda</h1>
 
@@ -33,7 +48,8 @@
         <button type="submit" class="btn btn-primary mt-3 wow zoomIn">Kirim</button>
       </form>
     </div>
-  </div> <!-- .page-section -->
+  </div>  -->
+  <!-- .page-section -->
 <?php
 include_once('layout/footer.php');
 ?>

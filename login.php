@@ -21,7 +21,7 @@ include_once('layout/header.php');
   <div class="page-section">
     <div class="container">
         <h2 class="text-center">Login</h2>
-        <form class="col-4 mx-auto" method="POST" action="function/login.php">
+        <form class="col-md-4 mx-auto" method="POST" action="function/login.php">
             <div class="form-group">
                 <label for="exampleInputEmail1">Username</label>
                 <input type="text" class="form-control" name="username" placeholder="Username">

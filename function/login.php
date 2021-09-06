@@ -28,7 +28,7 @@ if($cek_pelanggan > 0){
 	$_SESSION['pamrh_level'] = "pelanggan";
 	// alihkan ke halaman dashboard admin
 	$_SESSION['pamrh_flash_success'] = "Selamat Datang ".$data['nama'];
-	header("location:./pelanggan/index.php");
+	header("location: ../pelanggan/index.php");
 }
 elseif ($cek_admin > 0) {
     $data = mysqli_fetch_assoc($login_admin);

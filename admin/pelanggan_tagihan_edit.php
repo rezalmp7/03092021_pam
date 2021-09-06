@@ -20,7 +20,7 @@
         $data_tagihan = mysqli_fetch_array($query_data_tagihan);
     }
     else {
-        header("Location: ../pelanggan.php");
+        header("Location: pelanggan.php");
     }
 
     $query_data_dusun = mysqli_query($koneksi, "SELECT * FROM dusun");

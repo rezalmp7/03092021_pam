@@ -13,10 +13,13 @@
         $id_pelanggan = $_GET['id'];
         $query_data_akun = mysqli_query($koneksi, "SELECT * FROM pelanggan WHERE id='$id_pelanggan'");
         $data_akun = mysqli_fetch_array($query_data_akun);
-        $id_pelanggan_tagihan = $data_akun['id_pelanggan'];
+        $id_pelanggan_tagihan = $data_akun['id'];
 
         $query_tagihan = mysqli_query($koneksi, "SELECT * FROM tagihan WHERE id_pelanggan='$id_pelanggan_tagihan'");
         $data_tagihan = mysqli_num_rows($query_tagihan);
+
+        $query_data_akhir = mysqli_query($koneksi, "SELECT max(akhir) as max_akhir FROM tagihan WHERE id_pelanggan='$id_pelanggan_tagihan'");
+        $data_akhir = mysqli_fetch_array($query_data_akhir);
     }
 
     $query_data_dusun = mysqli_query($koneksi, "SELECT * FROM dusun");
@@ -76,7 +79,8 @@
                             ?>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Meteran Akhir</label>
-                                <input type="number" class="form-control" name="akhir" placeholder="Meteran Akhir" required>
+                                <input type="hidden" name="awal" value="<?php echo $data_akhir['max_akhir']; ?>">
+                                <input type="number" class="form-control" <?php if($data_tagihan != 0) echo "min='".$data_akhir['max_akhir']."'"; ?> name="akhir" placeholder="Meteran Akhir" required>
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Unggah Bukti Pengecekan</label>

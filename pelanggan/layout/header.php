@@ -10,30 +10,34 @@
 
   <title>One Health - Medical Center HTML5 Template</title>
 
-  <link rel="stylesheet" href="./assets/assets/css/maicons.css">
-
-  <link rel="stylesheet" href="./assets/assets/css/bootstrap.css">
-
-  <link rel="stylesheet" href="./assets/assets/vendor/owl-carousel/css/owl.carousel.css">
-
-  <link rel="stylesheet" href="./assets/assets/vendor/animate/animate.css">
-
-  <link rel="stylesheet" href="./assets/assets/css/theme.css">
-
+  <link rel="stylesheet" href="../assets/assets/css/maicons.css">
+  <link rel="stylesheet" href="../assets/assets/css/bootstrap.css">
+  <link rel="stylesheet" href="../assets/assets/vendor/owl-carousel/css/owl.carousel.css">
+  <link rel="stylesheet" href="../assets/assets/vendor/animate/animate.css">
+  <link rel="stylesheet" href="../assets/assets/css/theme.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.4/dist/sweetalert2.min.css">
-
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.11.0/css/dataTables.bootstrap4.min.css">  
+  <link rel="stylesheet" href="../assets/assets/vendor/lightbox2/dist/css/lightbox.min.css">
     
-  <script src="./assets/assets/js/jquery-3.5.1.min.js"></script>
-
-  <script src="./assets/assets/js/bootstrap.bundle.min.js"></script>
-
-  <script src="./assets/assets/vendor/owl-carousel/js/owl.carousel.min.js"></script>
-
-  <script src="./assets/assets/vendor/wow/wow.min.js"></script>
-
-  <script src="./assets/assets/js/theme.js"></script>
-
+  <script src="../assets/assets/js/jquery-3.5.1.min.js"></script>
+  <script src="../assets/assets/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/assets/vendor/owl-carousel/js/owl.carousel.min.js"></script>
+  <script src="../assets/assets/vendor/wow/wow.min.js"></script>
+  <script src="../assets/assets/js/theme.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.4/dist/sweetalert2.min.js"></script>
+  <script src="https://cdn.datatables.net/1.11.0/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.11.0/js/dataTables.bootstrap4.min.js"></script>
+  <script src="../assets/assets/vendor/lightbox2/dist/js/lightbox-plus-jquery.min.js"></script>
+  <script src="https://code.iconify.design/2/2.0.3/iconify.min.js"></script>
+  
+  <script src="../library/webcodecamjs/js/qrcodelib.js"></script>
+  <script src="../library/webcodecamjs/js/webcodecamjs.js"></script>
+  
+  <script>
+    $(document).ready(function() {
+      $('#data_table').DataTable();
+    });
+  </script>
 </head>
 <body>
 
@@ -76,14 +80,29 @@
             <li class="nav-item <?php if($thisPage == 'home') echo 'active'; ?>">
               <a class="nav-link" href="index.php">Home</a>
             </li>
-            <li class="nav-item <?php if($thisPage == 'kontak') echo 'active'; ?>">
-              <a class="nav-link" href="kontak.php">Kontak Kami</a>
-            </li>
-            <li class="nav-item <?php if($thisPage == 'faq') echo 'active'; ?>">
-              <a class="nav-link" href="faq.php">FAQ</a>
+            <li class="nav-item <?php if($thisPage == 'tagihan') echo 'active'; ?>">
+              <a class="nav-link" href="tagihan.php">Tagihan</a>
             </li>
             <li class="nav-item">
-              <a class="btn btn-primary ml-lg-3" href="login.php">Login</a>
+              <?php if(isset($pelanggan_login))
+              {
+              ?>
+              <div class="dropdown">
+                <button class="btn btn btn-primary ml-lg-3 dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <?php echo $pelanggan_login['nama']; ?>
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item" href="../function/logout.php">Logout</a>
+                </div>
+              </div>
+              <?php
+              }
+              else {
+              ?>
+              <a class="btn btn-primary ml-lg-3" href="../login.php">Login</a>
+              <?php
+              }
+              ?>
             </li>
           </ul>
         </div> <!-- .navbar-collapse -->
@@ -91,7 +110,6 @@
     </nav>
   </header>
   <?php
-  session_start();
   if(isset($_SESSION['pamrh_flash_success']) && $_SESSION['pamrh_flash_success'] != '')
   {
   ?>
