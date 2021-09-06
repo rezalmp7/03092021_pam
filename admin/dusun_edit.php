@@ -26,10 +26,10 @@
                     <ol class="breadcrumb breadcrumb-dark bg-transparent justify-content-center py-0 mb-2">
                         <li class="breadcrumb-item"><a href="index.php">Home</a></li>
                         <li class="breadcrumb-item"><a href="dusun.php">Dusun</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Tambah</li>
+                        <li class="breadcrumb-item active" aria-current="page">Edit</li>
                     </ol>
                 </nav>
-                <h1 class="font-weight-normal">TAMBAH DUSUN</h1>
+                <h1 class="font-weight-normal">EDIT DUSUN</h1>
             </div> <!-- .container -->
         </div> <!-- .banner-section -->
     </div> <!-- .page-banner -->
@@ -38,7 +38,7 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-8 wow fadeInUp">
-                    <h1 class="mb-3">Tambah Dusun</h1>
+                    <h1 class="mb-3">Edit Dusun</h1>
                     <div class="text-lg">
                         <form method="POST" action="function/edit_dusun.php">
                             <input type="hidden" name="id" value="<?php echo $data_dusun['id']; ?>">
@@ -51,7 +51,7 @@
                                 <label for="exampleInputEmail1">Kode Dusun <small class="text-danger">Kode terdiri dari 3 Huruf</small></label>
                                 <input type="text" class="form-control" name="kode" placeholder="Kode" maxlength="3" minlength="3" value="<?php echo $data_dusun['kode']; ?>">
                             </div>
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <button type="submit" class="btn btn-primary">Edit</button>
                         </form>
                     </div>
                 </div>

@@ -1,6 +1,6 @@
 <?php
     session_start();
-    $thisPage = 'akun';
+    $thisPage = 'pelanggan';
     
     include '../config/koneksi.php';
     $id_admin = $_SESSION['pamrh_id_admin'];

@@ -1,6 +1,6 @@
 <?php
     session_start();
-    $thisPage = 'akun';
+    $thisPage = 'pelanggan';
     
     include '../config/koneksi.php';
     $id_admin = $_SESSION['pamrh_id_admin'];
@@ -40,7 +40,7 @@
                         <li class="breadcrumb-item active" aria-current="page">Edit</li>
                     </ol>
                 </nav>
-                <h1 class="font-weight-normal">TAMBAH TAGIHAN <?php echo $data_akun['id_pelanggan']; ?></h1>
+                <h1 class="font-weight-normal">EDIT TAGIHAN <?php echo $data_akun['id_pelanggan']; ?></h1>
             </div> <!-- .container -->
         </div> <!-- .banner-section -->
     </div> <!-- .page-banner -->
@@ -49,7 +49,7 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-8 wow fadeInUp">
-                    <h1 class="mb-3">Tambah Tagihan</h1>
+                    <h1 class="mb-3">Edit Tagihan</h1>
                     <div class="text-lg">
                         <form method="POST" enctype="multipart/form-data" action="function/edit_tagihan.php">
                             <input type="hidden" name="id" value="<?php echo $data_tagihan['id'];?>">

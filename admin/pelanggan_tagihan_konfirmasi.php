@@ -1,6 +1,6 @@
 <?php
     session_start();
-    $thisPage = 'akun';
+    $thisPage = 'pelanggan';
     
     include '../config/koneksi.php';
     $id_admin = $_SESSION['pamrh_id_admin'];
@@ -36,10 +36,11 @@
                     <ol class="breadcrumb breadcrumb-dark bg-transparent justify-content-center py-0 mb-2">
                         <li class="breadcrumb-item"><a href="index.php">Home</a></li>
                         <li class="breadcrumb-item"><a href="pelanggan.php">Pelanggan</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Tagihan <?php echo $data_pelanggan['id_pelanggan']; ?></li>
+                        <li class="breadcrumb-item"><a href="pelanggan_tagihan.php?id=<?php echo $data_akun['id']; ?>">Tagihan <?php echo $data_pelanggan['id_pelanggan']; ?></a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Konfirmasi</li>
                     </ol>
                 </nav>
-                <h1 class="font-weight-normal">Bayar Tagihan <?php echo $data_tagihan['id_tagihan']; ?></h1>
+                <h1 class="font-weight-normal">Konfirmasi Tagihan <?php echo $data_tagihan['id_tagihan']; ?></h1>
             </div> <!-- .container -->
         </div> <!-- .banner-section -->
     </div> <!-- .page-banner -->
@@ -48,7 +49,7 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-8 wow fadeInUp">
-                    <h1 class="mb-3">Bayar Tagihan</h1>
+                    <h1 class="mb-3">Konfirmasi Tagihan</h1>
                     <div class="text-lg">
                         <form method="POST" enctype="multipart/form-data" action="function/konfirmasi_tagihan.php">
                             <input type="hidden" name="id" value="<?php echo $data_tagihan['id'];?>">
@@ -93,7 +94,7 @@
                                     </label>
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-primary">Edit</button>
+                            <button type="submit" class="btn btn-primary">Konfirmasi</button>
                         </form>
                     </div>
                 </div>

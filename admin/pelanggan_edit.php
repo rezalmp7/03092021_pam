@@ -1,6 +1,6 @@
 <?php
     session_start();
-    $thisPage = 'akun';
+    $thisPage = 'pelanggan';
     
     include '../config/koneksi.php';
     $id_admin = $_SESSION['pamrh_id_admin'];
@@ -31,10 +31,10 @@
                     <ol class="breadcrumb breadcrumb-dark bg-transparent justify-content-center py-0 mb-2">
                         <li class="breadcrumb-item"><a href="index.php">Home</a></li>
                         <li class="breadcrumb-item"><a href="pelanggan.php">Pelanggan</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Tambah Pelanggan</li>
+                        <li class="breadcrumb-item active" aria-current="page">Edit</li>
                     </ol>
                 </nav>
-                <h1 class="font-weight-normal">TAMBAH PELANGGAN</h1>
+                <h1 class="font-weight-normal">EDIT PELANGGAN</h1>
             </div> <!-- .container -->
         </div> <!-- .banner-section -->
     </div> <!-- .page-banner -->
@@ -43,7 +43,7 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-8 wow fadeInUp">
-                    <h1 class="mb-3">Tambah Pelanggan</h1>
+                    <h1 class="mb-3">Edit Pelanggan</h1>
                     <div class="text-lg">
                         <form method="POST" action="function/edit_pelanggan.php">
                             <input type="text" name="id" value="<?php echo $data_pelanggan['id']; ?>">
@@ -86,7 +86,7 @@
                                 <label for="exampleInputPassword1">Nomor HP</label>
                                 <input type="number" class="form-control" name="no_hp" placeholder="Nomor Handphone" value="<?php echo $data_pelanggan['no_hp']; ?>" required>
                             </div>
-                            <button type="submit" class="btn btn-primary">Tambah</button>
+                            <button type="submit" class="btn btn-primary">Edit</button>
                         </form>
                     </div>
                 </div>

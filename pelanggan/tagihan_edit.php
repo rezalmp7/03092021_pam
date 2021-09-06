@@ -39,10 +39,10 @@
                     <ol class="breadcrumb breadcrumb-dark bg-transparent justify-content-center py-0 mb-2">
                         <li class="breadcrumb-item"><a href="index.php">Home</a></li>
                         <li class="breadcrumb-item"><a href="tagihan.php">Tagihan <?php echo $data_tagihan['id_tagihan']; ?></a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Bayar</li>
+                        <li class="breadcrumb-item active" aria-current="page">Edit</li>
                     </ol>
                 </nav>
-                <h1 class="font-weight-normal">Bayar Tagihan <?php echo $data_tagihan['id_tagihan']; ?></h1>
+                <h1 class="font-weight-normal">Edit Tagihan <?php echo $data_tagihan['id_tagihan']; ?></h1>
             </div> <!-- .container -->
         </div> <!-- .banner-section -->
     </div> <!-- .page-banner -->
@@ -51,7 +51,7 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-8 wow fadeInUp">
-                    <h1 class="mb-3">Bayar Tagihan</h1>
+                    <h1 class="mb-3">Edit Tagihan</h1>
                     <div class="text-lg">
                         <form method="POST" enctype="multipart/form-data" action="function/edit_tagihan.php">
                             <input type="hidden" name="id" value="<?php echo $data_tagihan['id'];?>">

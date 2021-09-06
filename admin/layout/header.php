@@ -15,7 +15,7 @@
 
   <meta name="copyright" content="MACode ID, https://macodeid.com/">
 
-  <title>One Health - Medical Center HTML5 Template</title>
+  <title>PAM - ROUDHOTUL HIDAYAH</title>
 
   <link rel="stylesheet" href="../assets/assets/css/maicons.css">
   <link rel="stylesheet" href="../assets/assets/css/bootstrap.css">
@@ -88,6 +88,9 @@
             </li>
             <li class="nav-item <?php if($thisPage == 'pelanggan') echo 'active'; ?>">
               <a class="nav-link" href="pelanggan.php">Pelanggan</a>
+            </li>
+            <li class="nav-item <?php if($thisPage == 'pesan') echo 'active'; ?>">
+              <a class="nav-link" href="pesan.php">Pesan</a>
             </li>
             <li class="nav-item <?php if($thisPage == 'dusun') echo 'active'; ?>">
               <a class="nav-link" href="dusun.php">Kode Dusun</a>

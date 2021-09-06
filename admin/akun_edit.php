@@ -58,7 +58,7 @@
                                 <input type="hidden" name="password_lama" value="<?php echo $data_akun['password']; ?>">
                                 <input type="password" class="form-control" name="password" placeholder="Password">
                             </div>
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <button type="submit" class="btn btn-primary">Edit</button>
                         </form>
                     </div>
                 </div>

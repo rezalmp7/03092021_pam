@@ -46,7 +46,7 @@
                                 <label for="exampleInputEmail1">Kode Dusun <small class="text-danger">Kode terdiri dari 3 Huruf</small></label>
                                 <input type="text" class="form-control" name="kode" placeholder="Kode" maxlength="3">
                             </div>
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <button type="submit" class="btn btn-primary">Tambah</button>
                         </form>
                     </div>
                 </div>

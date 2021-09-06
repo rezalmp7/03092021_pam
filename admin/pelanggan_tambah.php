@@ -1,6 +1,6 @@
 <?php
     session_start();
-    $thisPage = 'akun';
+    $thisPage = 'pelanggan';
     
     include '../config/koneksi.php';
     $id_admin = $_SESSION['pamrh_id_admin'];
@@ -25,7 +25,7 @@
                     <ol class="breadcrumb breadcrumb-dark bg-transparent justify-content-center py-0 mb-2">
                         <li class="breadcrumb-item"><a href="index.php">Home</a></li>
                         <li class="breadcrumb-item"><a href="pelanggan.php">Pelanggan</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Tambah Pelanggan</li>
+                        <li class="breadcrumb-item active" aria-current="page">Tambah</li>
                     </ol>
                 </nav>
                 <h1 class="font-weight-normal">TAMBAH PELANGGAN</h1>

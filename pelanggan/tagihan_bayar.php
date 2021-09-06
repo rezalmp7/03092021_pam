@@ -84,7 +84,7 @@
                                     Jenis file yang diperbolehkan: .jpg .jpeg .png
                                 </small>
                             </div>
-                            <button type="submit" class="btn btn-primary">Edit</button>
+                            <button type="submit" class="btn btn-primary">Bayar</button>
                         </form>
                     </div>
                 </div>

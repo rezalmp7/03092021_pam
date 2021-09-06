@@ -102,7 +102,7 @@
     <div class="card">
         <div class="container">
           <img src="../../assets/img/hearder.jpg" alt="John" style="width:100%; height:100px;">
-          <div class="centered"><h3>Kartu Pelanggan<br>PAM Desa Sidawung</h3></div>
+          <div class="centered"><h3>Kartu Pelanggan<br>PAM ROUDHOTUL HIDAYAH</h3></div>
         </div>
       
       <?php 
@@ -137,10 +137,10 @@
                 </tr>
             </table>
             </div>
-            <div class="content">
+            <div class="content" style="padding-top: 0;">
             <table>
                 <tr>
-                    <td><img style="height:120px;" src="../../assets/img/qrcode/<?php echo $data['qrcode']; ?>"
+                    <td><img style="width: 100%" src="../../assets/img/qrcode/<?php echo $data['qrcode']; ?>"
         class="qr-code img-thumbnail col-12 img-responsive" /></td>
                 </tr>
                 <tr>
